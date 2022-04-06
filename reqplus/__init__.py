@@ -4,22 +4,22 @@ from re import match
 
 class StrictParser(reqparse.RequestParser):
 
-    def pre_parse_args(self, req_in=None, strict_in=False, http_error_code_in=400, bundle=False):
+    def pre_parse_args(self, req=None, strict=False, http_error_code=400, bundle=False):
         """
-        Overide reqparse parser in order to validate each of the incoming request parameters
+        Overide reqparse parser in order to validate each of the incoming request parameters 
         """
         try:
-            if req_in is None:
-                req_in = request
+            if req is None:
+                req = request
             
             #args and values are query params (args recommend)
-            query_params = list(req_in.args.keys())
+            query_params = list(req.args.keys())
             #form are Form and Form-Encode params
-            form_params = list(req_in.form.keys())
+            form_params = list(req.form.keys())
             #headers.environ for header variables and concat 'HTTP_' + var_name in upper case
-            header_params = [i for i in list(req_in.headers.environ.keys()) if 'HTTP_' in i] 
+            header_params = [i for i in list(req.headers.environ.keys()) if 'HTTP_' in i] 
             #files for files
-            file_params = list(req_in.files.keys())
+            file_params = list(req.files.keys())
 
             errors = []
 
@@ -39,6 +39,6 @@ class StrictParser(reqparse.RequestParser):
                     raise Exception(', '.join(errors))
                 raise Exception(errors[0])
 
-            return reqparse.RequestParser.parse_args(self, req_in, strict_in, http_error_code_in)
+            return reqparse.RequestParser.parse_args(self, req, strict, http_error_code)
         except Exception as e:
                 raise Exception(str(e))

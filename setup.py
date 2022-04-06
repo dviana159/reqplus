@@ -8,7 +8,7 @@ setup(
     version='0.0.1',
     license='GNU v3.0',
     long_description=readme.read(),
-    long_description_content_type='txt/markdown',
+    long_description_content_type='text/markdown',
     description='A lib for strict Flask reqparse',
     author='dviana',
     author_email='dviana7898@gmail.com',

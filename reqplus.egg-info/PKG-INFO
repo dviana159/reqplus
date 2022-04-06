@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: reqplus
+Version: 0.0.1
+Summary: A lib for strict Flask reqparse
+Home-page: https://github.com/dviana159/reqplus
+Download-URL: https://github.com/dviana159/reqplus/tarball/1.0
+Author: dviana
+Author-email: dviana7898@gmail.com
+License: GNU v3.0
+Keywords: Better flask reqparse,reqplus flask
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# reqplus
+A lib for strict Flask reqparse
+
+
