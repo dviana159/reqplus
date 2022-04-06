@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+reqplus/__init__.py
+reqplus.egg-info/PKG-INFO
+reqplus.egg-info/SOURCES.txt
+reqplus.egg-info/dependency_links.txt
+reqplus.egg-info/top_level.txt
