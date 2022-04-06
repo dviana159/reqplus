@@ -5,7 +5,7 @@ readme = open("./README.md", "r")
 setup(
     name='reqplus',
     packages=['reqplus'],
-    version='0.0.1',
+    version='0.0.2',
     license='GNU v3.0',
     long_description=readme.read(),
     long_description_content_type='text/markdown',
