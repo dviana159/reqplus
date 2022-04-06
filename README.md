@@ -1,4 +1,4 @@
-# Reqplus :heavy_plus_sign:
+# Reqplus
 ### _A lib for strict Flask reqparse_
 
 This is an easy way to raise required parameters using reqparse from Flask Restful framework.
@@ -19,7 +19,7 @@ pip install reqplus
 ```py
 from flask_restful import reqparse
 
-parser = reqparse.RequestParser()
+parser = reqparse.RequestParser(bundle_errors=True)
 parser.add_argument('id', type=int, required=True, location='args', help='Id is required')
 ```
 
@@ -65,22 +65,21 @@ Normally an API returns static messages doing "try cath" blocks for raise all th
 > "message" :  "foo error message"
 
 With reqparse you will have the following message:
-> "message" : "400 Bad Request: The browser (or proxy) sent a request that this server could not understand."
+> "message" : "400 Bad Request: The browser (or proxy) sent a request that this server could not understand.".
 
 To improve this error reqplus intercept the incoming request and comparate it with de reqparse arguments raising an exception if any argument don't meet the conditions.
 
-`pre_parse_args` also accept the current parameters from reqparse and include a new parameter name `bundle` if you want to bundle all the error from de validation in one exception
+`pre_parse_args` also accept the current parameters from reqparse and use the parameter `bundle_errors` from reqparse declaration to bundle all the error from de validation in one exception.
 
 ### Example
 
 ```py
 # strict=True
 # http_error_code=400
-# New bundle=True
-args = StrictParser.pre_parse_args(parser, strict=True, http_error_code=400, bundle=True)
+args = StrictParser.pre_parse_args(parser, strict=True, http_error_code=400)
 ```
 
-Set bundle in false to get the first posible error
+Set `bundle_errors` in false to get the first posible error
 
 ```py
 # Old
@@ -90,9 +89,9 @@ Set bundle in false to get the first posible error
 }
 
 # New 
-# bundle:false
+# bundle_errors:false
 "message" : "foo error message"
-# bundle:true
+# bundle_errors:true
 "message" : "foo error message, bar error message"
 ```
 

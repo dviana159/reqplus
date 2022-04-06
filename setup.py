@@ -5,7 +5,7 @@ readme = open("./README.md", "r")
 setup(
     name='reqplus',
     packages=['reqplus'],
-    version='0.0.1',
+    version='0.0.3',
     license='GNU v3.0',
     long_description=readme.read(),
     long_description_content_type='text/markdown',
@@ -13,7 +13,7 @@ setup(
     author='dviana',
     author_email='dviana7898@gmail.com',
     url='https://github.com/dviana159/reqplus',
-    download_url='https://github.com/dviana159/reqplus/tarball/1.0',
+    download_url='https://github.com/dviana159/reqplus/tarball/0.0.3',
     keywords=['Better flask reqparse', 'reqplus flask'], # Palabras que definan tu paquete
     classifiers=['Programming Language :: Python :: 3.7'],
 )

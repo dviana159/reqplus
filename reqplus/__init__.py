@@ -4,7 +4,7 @@ from re import match
 
 class StrictParser(reqparse.RequestParser):
 
-    def pre_parse_args(self, req=None, strict=False, http_error_code=400, bundle=False):
+    def pre_parse_args(self, req=None, strict=False, http_error_code=400):
         """
         Overide reqparse parser in order to validate each of the incoming request parameters 
         """
@@ -35,7 +35,7 @@ class StrictParser(reqparse.RequestParser):
                         if not arg.name in file_params: errors.append(arg.help)
             
             if errors != []:
-                if bundle:
+                if self.bundle_errors:
                     raise Exception(', '.join(errors))
                 raise Exception(errors[0])
 
